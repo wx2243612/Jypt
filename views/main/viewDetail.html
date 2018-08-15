@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="leftBox borderColor">
+    <h2 class="articleTitle ellipsis">{{ content.xmmc }}</h2>
+    <p class="colDefault">
+        姓名:<span class="colInfo">{{ content.user.username }}</span>
+        时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
+        金额:<span class="colInfo">{{ content.je }}</span>
+    </p>
+    <div class="contentDetail">{{ content.xmlx }}</div>
+</div>
+
+
+<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/js/comLibrary.js"></script>
+<script type="text/javascript" src="../../public/js/main/comments.js"></script>
+
+{% endblock %}

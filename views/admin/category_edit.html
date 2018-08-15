@@ -1,0 +1,23 @@
+<!--继承 layout 模板 复用头部尾部等页面区域-->
+{% extends 'layout.html' %}
+
+{% block main %}
+<div class="jumbotron">
+    <!--用户列表-->
+    <ol class="breadcrumb">
+        <li><a href="#">账户首页</a></li>
+        <li><span></span>账户编辑</li>
+    </ol>
+    <hr>
+    <h3>账户编辑:</h3>
+    <hr>
+    <form method="post">
+        <div class="form-group">
+            <label for="name">账户名称</label>
+            <input type="text" value="{{category.name}}" class="form-control" id="name" name="name">
+        </div>
+
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+</div>
+{% endblock %}

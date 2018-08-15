@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="../../public/plug-in/bootstrap-3.3.7/css/bootstrap.css">
+  
+
+</head>
+<body>
+<!--顶部导航-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/admin">后台管理</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                {% if userInfo.isSuperAdmin %}
+                <li><a href="/admin/user">账号管理</a></li>
+                {% endif %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">账户管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/category">账户首页</a></li>
+                        <li><a href="/admin/category/add">添加账户</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">交易管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/content">交易首页</a></li>
+                        <li><a href="/admin/content/add">交易添加</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{ userInfo.username }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/logout">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--信息区-->
+<div class="container-fluid">
+    {% block main %}{% endblock %}
+</div>
+
+</body>
+
+</html>

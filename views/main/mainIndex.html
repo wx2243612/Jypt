@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% for content in contents %}
+<div class="leftBox borderColor">
+    <h2 class="articleTitle ellipsis">项目名称:{{ content.xmmc }}</h2>
+    <p class="colDefault">
+        姓名:<span class="colInfo">{{ content.user.username }}</span>
+        时间:<span class="colInfo">{{ content.addTime|date('Y-m-d H:i',8*-60) }}</span>
+        金额:<span class="colInfo">{{ content.je }}</span>
+    </p>
+    <div class="summary">{{ content.xmlx }}</div>
+</div>
+{% endfor %}
+<ul class="pager">
+    <li class="previous">
+        {% if page<=1 %}
+        <span>没有上一页了</span>
+        {% else %}
+        <a href="/?category=category&page={{ page - 1 }}">上一页</a>
+        {% endif %}
+    </li>
+    {% if pages>0 %}
+    <li class="pageInfo">
+        <strong>{{ page }}/{{ pages }}</strong>
+    </li>
+    {% else %}
+    <li class="pageInfo">
+        <strong>...</strong>
+    </li>
+    {% endif %}
+    <li class="next">
+        {% if page>=pages %}
+        <span>没有下一页了</span>
+        {% else %}
+        <a href="/?category=category&page={{ page + 1 }}">下一页</a>
+        {% endif %}
+    </li>
+</ul>
+
+{% endblock %}

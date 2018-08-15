@@ -1,0 +1,13 @@
+<!--继承 layout 模板 复用头部尾部等页面区域-->
+{% extends 'layout.html' %}
+
+{% block main %}
+<div class="jumbotron">
+    <hr>
+    管理首页
+    <hr>
+    <h1>Hello, {{userInfo.username}} !</h1>
+    <p>欢迎进入思帆后台管理 ！</p>
+    <p><a href="/">返回首页</a></p>
+</div>
+{% endblock %}
